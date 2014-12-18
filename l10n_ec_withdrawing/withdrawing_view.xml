@@ -223,7 +223,14 @@
 	    </group>
 	    <notebook colspan="4">
 	      <page string="Impuestos">
-		<field name="tax_ids" widget="many2many" nolabel="1" domain="[('invoice_id','=',invoice_id),('tax_group','in',['ret_ir','ret_vat_b','ret_vat_srv'])]">
+                  <!--
+                  domain="['|',('invoice_id','=',invoice_id),
+                  ('tax_group','in',['ret_ir','ret_vat_b','ret_vat_srv'])]"
+                  -->
+              <field name="tax_ids" widget="many2many" nolabel="1" 
+                  domain="['|',('invoice_id','=',invoice_id),
+                  ('tax_group','in',['ret_ir','ret_vat_b','ret_vat_srv'])]"
+                  >
 		  <tree string="Impuestos Aplicados">
 		    <field name="invoice_id" invisible="1"/>
 		    <field name="fiscal_year"/>
